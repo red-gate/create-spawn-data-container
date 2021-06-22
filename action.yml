@@ -1,0 +1,34 @@
+name: 'Spawn create data-container action'
+description: 'Create a spawn data container'
+inputs:
+  dataImage:
+    description: 'The data image to use to create a data-container from'
+    required: true
+  lifetime:
+    description: 'The lifetime of the data-container before it is automatically deleted'
+    required: false
+    default: '73h'
+  additionalArgs:
+    description: 'Additional arguments to provide (e.g flags for a command)'
+    required: false
+    default: ''
+
+outputs:
+  dataContainerName:
+    description: 'The new data containers name'
+  dataContainerHost:
+    description: 'The host on which the new data container runs'
+  dataContainerPort:
+    description: 'The port on which the new data container listens'
+  dataContainerUsername:
+    description: 'The username for the new data container'
+  dataContainerPassword:
+    description: 'The password for the new data container'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.dataImage }}
+    - ${{ inputs.lifetime }}
+    - ${{ inputs.additionalArgs }}
