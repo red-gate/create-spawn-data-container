@@ -1,4 +1,7 @@
-name: 'Spawn create data-container action'
+name: 'Create Spawn Data Container'
+branding:
+  color: purple
+  icon: database
 description: 'Create a spawn data container'
 inputs:
   dataImage:
