@@ -11,6 +11,10 @@ inputs:
     description: 'The lifetime of the data-container before it is automatically deleted'
     required: false
     default: '73h'
+  useMasking:
+    description: 'Whether or not to mask the data-container port, username and password'
+    required: false
+    default: 'true'
   additionalArgs:
     description: 'Additional arguments to provide (e.g flags for a command)'
     required: false
@@ -34,4 +38,5 @@ runs:
   args:
     - ${{ inputs.dataImage }}
     - ${{ inputs.lifetime }}
+    - ${{ inputs.useMasking }}
     - ${{ inputs.additionalArgs }}

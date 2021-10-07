@@ -10,6 +10,7 @@ See the [Spawn docs](https://docs.spawn.cc/cicd/github-actions) for an example w
 | --------------- | ------------------------------------------------------------------------------------- | ------- | -------- |
 | dataImage       | The data image identifier (name, or numeric ID) to create a data container from       | N/A     | Yes      |
 | lifetime        | The lifetime of the data container before it is automatically deleted.                | 73h     | No       |
+| useMasking      | Whether or not to mask the data-container port, username and password.                | true    | No       |
 | additionalArgs  | Any additional arguments or flags to `spawnctl`. These will be appended to the end    | ''      | No       |
 
 ## Outputs
