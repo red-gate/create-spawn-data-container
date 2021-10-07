@@ -13,6 +13,11 @@ if [[ -z "$SPAWNCTL_ACCESS_TOKEN" ]]; then
     exit 1
 fi
 
+if [ $useMasking != "true" ] && [ "$useMasking" != "false" ]; then
+  echo "masking must be set to either 'true' or 'false'. Received: $useMasking"
+  exit 1
+fi
+
 newDcName=$(spawnctl create data-container --image "$dataImage" --lifetime $lifetime $@ -q)
 jsonOutput=$(spawnctl get data-container $newDcName -o json)
 host=$(echo $jsonOutput | jq -r '.host')
